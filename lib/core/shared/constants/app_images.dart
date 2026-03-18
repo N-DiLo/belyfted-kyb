@@ -12,6 +12,8 @@ class AppImages {
   static const vPending = '$_path/verification-pending.svg';
   static const verify = '$_path/verify.svg';
   static const arrowDown = '$_path/arrow-down.svg';
+  static const global = '$_path/global.svg';
+  static const zap = '$_path/zap.svg';
 }
 
 extension ImageExt on String {

@@ -23,13 +23,13 @@ class RouteService {
       case kybView:
         return const KYBView();
       case verificationResult:
-        final option = settings.arguments as String;
+        final option = settings.arguments as String?;
+        if (option == null) {
+          return const UnknownRouteView(reason: 'Missing arguments');
+        }
         return KYBResultView(option: option);
-
       default:
-        return Scaffold(
-          body: Center(child: TextWidget(text: 'No route defined for $route')),
-        );
+        return UnknownRouteView(reason: 'No route defined for $route');
     }
   }
 

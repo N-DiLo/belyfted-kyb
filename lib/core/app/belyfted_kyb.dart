@@ -11,11 +11,17 @@ class BelyftedKYB extends StatelessWidget {
       onGenerateRoute: onGenerateRoute,
       navigatorKey: navigations.navKey,
       initialRoute: initialRoute,
+      onUnknownRoute: (settings) => RouteService.fadeTransitionRoute(
+        UnknownRouteView(reason: 'No route defined for ${settings.name}'),
+        settings: settings,
+      ),
       theme: ThemeData(
         fontFamily: 'Montserrat',
         scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
-        colorSchemeSeed: AppColors.belyftedPrimaryColor,
-        primaryColor: AppColors.belyftedPrimaryColor,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: AppColors.belyftedPrimaryColor,
+          primary: AppColors.belyftedPrimaryColor,
+        ),
         hintColor: AppColors.belyftedNeutralColor.shade500,
       ),
       builder: (context, child) {

@@ -122,11 +122,11 @@ class _CustomButtonState extends State<CustomButton> {
       child: AnimatedContainer(
         alignment: Alignment.center,
         duration: const Duration(milliseconds: 300),
-        width: widget.width ?? double.infinity,
-        height: widget.height ?? 56.r,
+        width: widget.width ?? 378.fw,
+        height: widget.height ?? 56.fh,
         padding: 10.pa,
         decoration: BoxDecoration(
-          borderRadius: widget.borderRadius ?? BorderRadius.circular(8.r),
+          borderRadius: widget.borderRadius ?? BorderRadius.circular(16.r),
           color: isOutline ? Colors.transparent : _buttonColor(isDisabled),
           border: isOutline
               ? Border.all(
