@@ -23,9 +23,9 @@ class AppColors {
   });
 
   static const belyftedPrimaryColor = MaterialColor(0xff042656, {
-    0: Color(0xffF4F8FE),
     50: Color(0xffDCE3ED),
     100: Color(0xffEEF5FC),
+    200: Color(0xffF4F8FE),
   });
 
   static const belyftedNeutralColor = MaterialColor(0xff5A5A5A, {
