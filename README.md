@@ -144,20 +144,20 @@ Page transitions are randomised from four strategies (fade, slide, scale, rotate
 
 ## Reusable Widgets
 
-| Widget                   |
-| ------------------------ |
-| `CustomButton`           |
-| `CustomTextfield`        |
-| `CustomAppBar`           |
-| `CustomDialog`           |
-| `SelectionDialogContent` |
-| `CustomDialog`           |
-| `DocumentUploadField`    |
-| `StepIndicator`          |
-| `DirectorCard`           |
-| `KycCard`                |
-| `FeatureCard`            |
-| `RequirementsCard`       |
+| Widget                |
+| --------------------- |
+| `CustomButton`        |
+| `CustomTextfield`     |
+| `CustomAppBar`        |
+| `CustomDialog`        |
+| `DialogContent`       |
+| `CustomDialog`        |
+| `DocumentUploadField` |
+| `StepIndicator`       |
+| `DirectorCard`        |
+| `KycCard`             |
+| `FeatureCard`         |
+| `RequirementsCard`    |
 
 ---
 
