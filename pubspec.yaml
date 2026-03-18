@@ -30,6 +30,7 @@ dependencies:
   get_it: ^9.2.1
   flutter_svg: ^2.2.4
   extended_image: ^10.0.1
+  dotted_border: ^3.1.0
 
 dev_dependencies:
   flutter_test:
@@ -47,8 +48,10 @@ flutter:
     - family: Montserrat
       fonts:
         - asset: assets/fonts/Montserrat-SemiBold.ttf
+          weight: 600
         - asset: assets/fonts/Montserrat-Light.ttf
         - asset: assets/fonts/Montserrat-Medium.ttf
+          weight: 500
         - asset: assets/fonts/Montserrat-Regular.ttf
         - asset: assets/fonts/Montserrat-Italic.ttf
           style: italic

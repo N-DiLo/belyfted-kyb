@@ -72,6 +72,7 @@ class StartKYBView extends StatelessWidget {
 
             Center(
               child: CustomButton(
+                width: 378.fw,
                 text: 'Start Verification',
                 enabled: true,
                 onTap: () async => navigations.pushNamed(RouteService.kybView),

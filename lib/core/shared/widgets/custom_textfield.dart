@@ -80,12 +80,13 @@ class _CustomTextfieldState extends State<CustomTextfield> {
           if (hasLabel) ...[
             TextWidget(
               text: widget.labelText!,
-              fontSize: widget.hasDrop ? 14 : 16,
+              fontSize: widget.hasDrop ? 16 : 14,
               textColor: widget.hasDrop
                   ? AppColors.belyftedNeutralColor.shade800
                   : AppColors.darkColor,
-              fontWeight: widget.hasDrop ? FontWeight.w500 : FontWeight.w400,
+              fontWeight: widget.hasDrop ? FontWeight.w400 : FontWeight.w500,
             ),
+            5.fhs,
           ],
           TextFormField(
             style: TextStyle(
@@ -106,26 +107,29 @@ class _CustomTextfieldState extends State<CustomTextfield> {
             keyboardType: widget.keyboardType,
             obscuringCharacter: widget.obscuringCharacter,
             obscureText: widget.obscureText,
-            readOnly: widget.readOnly,
+            readOnly: widget.hasDrop ? true : widget.readOnly,
             showCursor: widget.showCursor,
             controller: widget.controller,
             onChanged: widget.onChanged,
             onTap: widget.onTap,
             autofocus: widget.autofocus,
             decoration: InputDecoration(
-              suffixIconConstraints: widget.readOnly
+              suffixIconConstraints: widget.hasDrop
                   ? BoxConstraints(minWidth: w(.1))
                   : widget.constraints,
               prefixIconConstraints: widget.readOnly
                   ? BoxConstraints(minWidth: w(.1))
                   : widget.constraints,
               prefixIcon: widget.prefixIcon,
-              suffixIcon: widget.suffixIcon != null
+              suffixIcon: widget.hasDrop
+                  ? Padding(
+                      padding: po(r: 16),
+                      child: ImageWidget(url: AppImages.arrowDown),
+                    )
+                  : widget.suffixIcon != null
                   ? GestureDetector(
                       onTap: widget.suffixTapped,
-                      child: !widget.hasDrop
-                          ? widget.suffixIcon
-                          : ImageWidget(url: AppImages.arrowDown),
+                      child: widget.suffixIcon,
                     )
                   : null,
               filled: true,
@@ -146,42 +150,42 @@ class _CustomTextfieldState extends State<CustomTextfield> {
                   color: AppColors.belyftedNeutralColor.shade200,
                   width: 1.r,
                 ),
-                borderRadius: BorderRadius.circular(8.r),
+                borderRadius: BorderRadius.circular(15.r),
               ),
               disabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
                   color: AppColors.belyftedNeutralColor.shade200,
                   width: 1.r,
                 ),
-                borderRadius: BorderRadius.circular(8.r),
+                borderRadius: BorderRadius.circular(15.r),
               ),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
                   color: AppColors.belyftedNeutralColor.shade200,
                   width: 1.r,
                 ),
-                borderRadius: BorderRadius.circular(8.r),
+                borderRadius: BorderRadius.circular(15.r),
               ),
               errorBorder: OutlineInputBorder(
                 borderSide: BorderSide(
                   color: AppColors.belyftedNeutralColor.shade200,
                   width: 1.r,
                 ),
-                borderRadius: BorderRadius.circular(8.r),
+                borderRadius: BorderRadius.circular(15.r),
               ),
               focusedErrorBorder: OutlineInputBorder(
                 borderSide: BorderSide(
                   color: AppColors.belyftedNeutralColor.shade200,
                   width: 1.r,
                 ),
-                borderRadius: BorderRadius.circular(8.r),
+                borderRadius: BorderRadius.circular(15.r),
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(
                   color: AppColors.belyftedNeutralColor.shade200,
                   width: 1.r,
                 ),
-                borderRadius: BorderRadius.circular(8.r),
+                borderRadius: BorderRadius.circular(15.r),
               ),
             ),
           ),

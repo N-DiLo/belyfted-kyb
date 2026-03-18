@@ -4,3 +4,5 @@ export 'custom_button.dart';
 export 'custom_app_bar.dart';
 export 'image_widget.dart';
 export 'custom_dialog.dart';
+export 'dotted_border_button.dart';
+export 'step_indicator.dart';

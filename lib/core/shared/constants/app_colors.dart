@@ -26,11 +26,14 @@ class AppColors {
     50: Color(0xffDCE3ED),
     100: Color(0xffEEF5FC),
     200: Color(0xffF4F8FE),
+    300: Color(0xff94A4BB),
+    500: Color(0xff042656),
   });
 
   static const belyftedNeutralColor = MaterialColor(0xff5A5A5A, {
     100: Color(0xffF4F4F4),
     200: Color(0xffE4E4E4),
+    300: Color(0xffD3D3D3),
     500: Color(0xff737373),
     800: Color(0xff262626),
   });

@@ -122,7 +122,7 @@ class _CustomButtonState extends State<CustomButton> {
       child: AnimatedContainer(
         alignment: Alignment.center,
         duration: const Duration(milliseconds: 300),
-        width: widget.width ?? 378.fw,
+        width: widget.width ?? double.infinity,
         height: widget.height ?? 56.fh,
         padding: 10.pa,
         decoration: BoxDecoration(
