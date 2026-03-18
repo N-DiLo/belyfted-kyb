@@ -133,7 +133,7 @@ class _CustomButtonState extends State<CustomButton> {
                   color: isDisabled
                       ? AppColors.belyftedInactiveColor
                       : (widget.color ?? AppColors.belyftedPrimaryColor),
-                  width: 1.5,
+                  width: 1.r,
                 )
               : null,
         ),

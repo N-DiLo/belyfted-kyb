@@ -1,4 +1,5 @@
 import 'package:belyfted/belyfted.dart';
+import 'package:belyfted/features/kyb/presentation/views/check_status_view.dart';
 
 Route<T> onGenerateRoute<T>(RouteSettings settings) {
   final route = settings.name ?? RouteService.startVerification;
@@ -10,6 +11,7 @@ class RouteService {
   static const String startVerification = '/';
   static const String verificationResult = '/verification-result';
   static const String kybView = '/kyb-view';
+  static const String checkStatus = '/check-status';
 
   // Random generator
   static final Random _random = Random();
@@ -22,6 +24,8 @@ class RouteService {
         return const StartKYBView();
       case kybView:
         return const KYBView();
+      case checkStatus:
+        return CheckStatusView();
       case verificationResult:
         final option = settings.arguments as String?;
         if (option == null) {
