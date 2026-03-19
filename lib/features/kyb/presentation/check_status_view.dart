@@ -13,7 +13,11 @@ class CheckStatusView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              ImageWidget(url: AppImages.vPending),
+              VerificationImage(
+                shadowColor: AppColors.belyftedAmberColor.shade500,
+                color: AppColors.belyftedAmberColor.shade50,
+                child: ImageWidget(url: AppImages.clock),
+              ),
               16.fhs,
               TextWidget(
                 text: 'Verifying Business Identity',

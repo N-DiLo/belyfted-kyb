@@ -40,6 +40,7 @@ class AppColors {
 
   static const belyftedAmberColor = MaterialColor(0xff91400E, {
     50: Color(0xffFEFAEA),
+    500: Color(0xffF49D0B),
     800: Color(0xff91400E),
   });
 

@@ -14,6 +14,8 @@ class AppImages {
   static const arrowDown = '$_path/arrow-down.svg';
   static const global = '$_path/global.svg';
   static const zap = '$_path/zap.svg';
+  static const clock = '$_path/clock.svg';
+  static const information = '$_path/information.svg';
 }
 
 extension ImageExt on String {

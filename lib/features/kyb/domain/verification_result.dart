@@ -8,7 +8,7 @@ extension VerificationResultX on VerificationResult {
       case VerificationResult.verified:
         return AppImages.vSuccess;
       case VerificationResult.failed:
-        return AppImages.vFailed;
+        return AppImages.information;
     }
   }
 
@@ -18,6 +18,15 @@ extension VerificationResultX on VerificationResult {
         return 'Verified';
       case VerificationResult.failed:
         return 'Verification Failed';
+    }
+  }
+
+  Color get color {
+    switch (this) {
+      case VerificationResult.verified:
+        return AppColors.belyftedGreenColor;
+      case VerificationResult.failed:
+        return AppColors.belyftedRedColor.shade100;
     }
   }
 
@@ -45,4 +54,6 @@ extension VerificationResultX on VerificationResult {
       orElse: () => VerificationResult.failed,
     );
   }
+
+  bool get useWrapper => this == VerificationResult.failed;
 }
