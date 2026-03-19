@@ -1,6 +1,6 @@
 import 'package:belyfted/belyfted.dart';
 
-class DocumentUploadView extends StatefulWidget {
+class DocumentUploadView extends ConsumerStatefulWidget {
   final void Function() onComplete;
   const DocumentUploadView({
     super.key,
@@ -11,10 +11,42 @@ class DocumentUploadView extends StatefulWidget {
   final PageController pageController;
 
   @override
-  State<DocumentUploadView> createState() => _DocumentUploadViewState();
+  ConsumerState<DocumentUploadView> createState() => _DocumentUploadViewState();
 }
 
-class _DocumentUploadViewState extends State<DocumentUploadView> {
+class _DocumentUploadViewState extends ConsumerState<DocumentUploadView> {
+  final Map<String, String> _uploadedFiles = {};
+  final _canProceed = ValueNotifier<bool>(false);
+
+  static const _requiredLabels = [
+    'Business Incorporation Certificate',
+    'Articles of Memorandum',
+    'Shares of the Business',
+    'Proof of Address',
+    'Proof of ID',
+    'Other Documents',
+  ];
+
+  void _onFileSelected(String label, String fileName, String filePath) {
+    setState(() => _uploadedFiles[label] = fileName);
+    _canProceed.value = _allFilesUploaded;
+  }
+
+  bool get _allFilesUploaded =>
+      _requiredLabels.every((label) => _uploadedFiles.containsKey(label));
+
+  @override
+  void initState() {
+    super.initState();
+    _canProceed.value = _allFilesUploaded;
+  }
+
+  @override
+  void dispose() {
+    _canProceed.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -33,28 +65,23 @@ class _DocumentUploadViewState extends State<DocumentUploadView> {
           textColor: AppColors.belyftedNeutralColor,
         ),
         32.fhs,
-        DocumentUploadField(
-          label: 'Business Incorporation Certificate',
-          onTap: () async {},
+        ..._requiredLabels.map(
+          (label) => DocumentUploadField(
+            label: label,
+            fileName: _uploadedFiles[label],
+            onFileSelected: (name, path) => _onFileSelected(label, name, path),
+          ),
         ),
-        DocumentUploadField(
-          label: 'Articles of Memorandum',
-          onTap: () async {},
-        ),
-        DocumentUploadField(
-          label: 'Shares of the Business',
-          onTap: () async {},
-        ),
-        DocumentUploadField(label: 'Proof of Address', onTap: () async {}),
-        DocumentUploadField(label: 'Proof of ID', onTap: () async {}),
-        DocumentUploadField(label: 'Other Documents', onTap: () async {}),
         101.fhs,
         CustomButton(
           onTap: () async {
+            ref
+                .read(kybSubmissionProvider.notifier)
+                .updateUploadedFiles(Map.from(_uploadedFiles));
             widget.onComplete();
           },
           text: 'Continue',
-          enabled: true,
+          enabledListenable: _canProceed,
         ),
         73.fhs,
       ],

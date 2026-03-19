@@ -1,15 +1,14 @@
 import 'package:belyfted/belyfted.dart';
 
-class BusinessInfoView extends StatefulWidget {
+class BusinessInfoView extends ConsumerStatefulWidget {
   const BusinessInfoView({super.key, required this.pageController});
-
   final PageController pageController;
 
   @override
-  State<BusinessInfoView> createState() => _BusinessInfoViewState();
+  ConsumerState<BusinessInfoView> createState() => _BusinessInfoViewState();
 }
 
-class _BusinessInfoViewState extends State<BusinessInfoView> {
+class _BusinessInfoViewState extends ConsumerState<BusinessInfoView> {
   final _formKey = GlobalKey<FormState>();
 
   final _businessNameController = TextEditingController();
@@ -93,6 +92,25 @@ class _BusinessInfoViewState extends State<BusinessInfoView> {
 
   Future<void> _onContinue() async {
     if (_formKey.currentState?.validate() ?? false) {
+      ref
+          .read(kybSubmissionProvider.notifier)
+          .updateBusinessInfo(
+            businessName: _businessNameController.text.trim(),
+            firstName: _firstNameController.text.trim(),
+            lastName: _lastNameController.text.trim(),
+            businessType: _selectedBusinessType ?? '',
+            industry: _selectedIndustry ?? '',
+            entity: _selectedEntity ?? '',
+            website: _websiteController.text.trim(),
+            phone: _phoneController.text.trim(),
+            email: _emailController.text.trim(),
+            address1: _address1Controller.text.trim(),
+            address2: _address2Controller.text.trim(),
+            city: _cityController.text.trim(),
+            stateValue: _stateController.text.trim(),
+            country: _selectedCountry ?? '',
+            zipCode: _zipCodeController.text.trim(),
+          );
       await widget.pageController.nextPage(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,

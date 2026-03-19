@@ -1,23 +1,26 @@
 import 'package:belyfted/belyfted.dart';
 
-class KYBView extends StatefulWidget {
+class KYBView extends ConsumerStatefulWidget {
   const KYBView({super.key});
 
   @override
-  State<KYBView> createState() => _KYBViewState();
+  ConsumerState<KYBView> createState() => _KYBViewState();
 }
 
-class _KYBViewState extends State<KYBView> {
+class _KYBViewState extends ConsumerState<KYBView> {
   final PageController _pageController = PageController();
   int _currentPage = 1;
   static const int _totalPages = 4;
 
-  void _onPageChanged(int value) {
-    setState(() => _currentPage = value + 1);
-  }
+  void _onPageChanged(int value) => setState(() => _currentPage = value + 1);
 
-  void _onComplete() =>
-      navigations.pushReplacementNamed(RouteService.checkStatus);
+  void _onComplete() {
+    final submission = ref.read(kybSubmissionProvider).toModel();
+    navigations.pushReplacementNamed(
+      RouteService.checkStatus,
+      arguments: submission,
+    );
+  }
 
   @override
   void dispose() {

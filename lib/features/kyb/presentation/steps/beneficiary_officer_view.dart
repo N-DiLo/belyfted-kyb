@@ -1,14 +1,16 @@
 import 'package:belyfted/belyfted.dart';
 
-class BeneficiaryOfficerView extends StatefulWidget {
+class BeneficiaryOfficerView extends ConsumerStatefulWidget {
   const BeneficiaryOfficerView({super.key, required this.pageController});
   final PageController pageController;
 
   @override
-  State<BeneficiaryOfficerView> createState() => _BeneficiaryOfficerViewState();
+  ConsumerState<BeneficiaryOfficerView> createState() =>
+      _BeneficiaryOfficerViewState();
 }
 
-class _BeneficiaryOfficerViewState extends State<BeneficiaryOfficerView> {
+class _BeneficiaryOfficerViewState
+    extends ConsumerState<BeneficiaryOfficerView> {
   late final List<DirectorItem> _directors;
   bool _showAddForm = false;
   int? _editingIndex;
@@ -163,10 +165,15 @@ class _BeneficiaryOfficerViewState extends State<BeneficiaryOfficerView> {
           child: CustomButton(
             enabled: _canContinue,
             onTap: _canContinue
-                ? () async => widget.pageController.nextPage(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                  )
+                ? () async {
+                    ref
+                        .read(kybSubmissionProvider.notifier)
+                        .updateDirectors(_directors);
+                    await widget.pageController.nextPage(
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                    );
+                  }
                 : null,
             text: 'Continue',
           ),

@@ -25,7 +25,8 @@ class RouteService {
       case kybView:
         return const KYBView();
       case checkStatus:
-        return CheckStatusView();
+        final submission = settings.arguments as KYBSubmissionModel;
+        return CheckStatusView(submission: submission);
       case verificationResult:
         final option = settings.arguments as String?;
         if (option == null) {

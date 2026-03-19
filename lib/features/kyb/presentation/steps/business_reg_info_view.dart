@@ -1,15 +1,16 @@
 import 'package:belyfted/belyfted.dart';
 
-class BusinessRegInfoView extends StatefulWidget {
+class BusinessRegInfoView extends ConsumerStatefulWidget {
   const BusinessRegInfoView({super.key, required this.pageController});
 
   final PageController pageController;
 
   @override
-  State<BusinessRegInfoView> createState() => _BusinessRegInfoViewState();
+  ConsumerState<BusinessRegInfoView> createState() =>
+      _BusinessRegInfoViewState();
 }
 
-class _BusinessRegInfoViewState extends State<BusinessRegInfoView> {
+class _BusinessRegInfoViewState extends ConsumerState<BusinessRegInfoView> {
   @override
   void initState() {
     super.initState();
@@ -68,6 +69,12 @@ class _BusinessRegInfoViewState extends State<BusinessRegInfoView> {
 
   Future<void> _onContinue() async {
     if (_formKey.currentState?.validate() ?? false) {
+      ref
+          .read(kybSubmissionProvider.notifier)
+          .updateRegInfo(
+            taxID: _taxController.text.trim(),
+            businessDesc: _descController.text.trim(),
+          );
       await widget.pageController.nextPage(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,

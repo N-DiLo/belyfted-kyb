@@ -53,13 +53,15 @@ flutter build ipa --release
 
 ## Technologies Used
 
-| Concern | Choice |
-|---|---|
-| Language | Dart |
-| Framework | Flutter |
-| Screen sizing | Vize (figma-based responsive scaling) |
-| Dotted borders | `dotted_border` |
-| Navigation | Named routes via `RouteService` |
+| Concern          | Choice                                 |
+| ---------------- | -------------------------------------- |
+| Language         | Dart                                   |
+| Framework        | Flutter                                |
+| Screen sizing    | Vize (figma-based responsive scaling)  |
+| Dotted borders   | `dotted_border`                        |
+| Image picker     | `image_picker`                         |
+| File picker      | `file_picker`                          |
+| Navigation       | Named routes via `RouteService`        |
 | State management | Local `setState` (no external package) |
 
 ---
@@ -209,19 +211,19 @@ Page transitions are randomised from four strategies (fade, slide, scale, rotate
 
 ## Reusable Widgets
 
-| Widget | Purpose |
-|---|---|
-| `CustomButton` | Primary / secondary / outline button with loading state and icon support |
-| `CustomTextfield` | Text input or dropdown — switches rendering based on `hasDrop` |
-| `CustomAppBar` | App bar with back button guard and optional bottom slot |
-| `CustomDialog` | Modal wrapper with typed `show<T>` static helper |
-| `SelectionDialogContent` | Searchable list used inside `CustomDialog` |
-| `DocumentUploadField` | Dotted-border file picker tile |
-| `StepIndicator` | Animated step circles — completed steps show green tick |
-| `DirectorCard` | Director row with edit / delete actions |
-| `KycCard` | Director KYC status list with colored badges |
-| `FeatureCard` | Info tile used on the start screen |
-| `RequirementsCard` | Bulleted subtitle list |
+| Widget                   | Purpose                                                                  |
+| ------------------------ | ------------------------------------------------------------------------ |
+| `CustomButton`           | Primary / secondary / outline button with loading state and icon support |
+| `CustomTextfield`        | Text input or dropdown — switches rendering based on `hasDrop`           |
+| `CustomAppBar`           | App bar with back button guard and optional bottom slot                  |
+| `CustomDialog`           | Modal wrapper with typed `show<T>` static helper                         |
+| `SelectionDialogContent` | Searchable list used inside `CustomDialog`                               |
+| `DocumentUploadField`    | Dotted-border file picker tile                                           |
+| `StepIndicator`          | Animated step circles — completed steps show green tick                  |
+| `DirectorCard`           | Director row with edit / delete actions                                  |
+| `KycCard`                | Director KYC status list with colored badges                             |
+| `FeatureCard`            | Info tile used on the start screen                                       |
+| `RequirementsCard`       | Bulleted subtitle list                                                   |
 
 ---
 
@@ -229,18 +231,18 @@ Page transitions are randomised from four strategies (fade, slide, scale, rotate
 
 All development data lives in `MockKycData`. To move to a real API, each static list and getter would be replaced with a repository call with no view code changes.
 
-| Key | Purpose |
-|---|---|
-| `businessTypes` | Business type dialog |
-| `industries` | Industry dialog |
-| `entities` | Entity type dialog |
-| `countries` | Country dialog |
-| `years` | Years in operation dialog |
-| `scope` | Business scope multiselect |
-| `roles` | Director role dialog |
-| `directors` | Seed KYC director list for `CheckStatusView` |
-| `seedDirectors` | Seed director list for `BeneficiaryOfficerView` — set to `[]` for blank state |
-| `mockedResult` | Controls result screen — swap to `VerificationResult.failed` to test failure path |
+| Key             | Purpose                                                                           |
+| --------------- | --------------------------------------------------------------------------------- |
+| `businessTypes` | Business type dialog                                                              |
+| `industries`    | Industry dialog                                                                   |
+| `entities`      | Entity type dialog                                                                |
+| `countries`     | Country dialog                                                                    |
+| `years`         | Years in operation dialog                                                         |
+| `scope`         | Business scope multiselect                                                        |
+| `roles`         | Director role dialog                                                              |
+| `directors`     | Seed KYC director list for `CheckStatusView`                                      |
+| `seedDirectors` | Seed director list for `BeneficiaryOfficerView` — set to `[]` for blank state     |
+| `mockedResult`  | Controls result screen — swap to `VerificationResult.failed` to test failure path |
 
 ---
 
@@ -260,7 +262,6 @@ As form data needs to be shared across steps (e.g. pre-filling director email fr
 
 **Unit and widget tests**
 No tests exist currently. Priority targets would be `VerificationResultX.fromString()`, `DirectorItem` computed getters, `CustomButton` enabled/disabled state, and the `BeneficiaryOfficerView` add/edit/delete director flow.
-
 
 **Localisation**
 All strings are currently hardcoded in English. Extracting them to ARB files via `flutter_localizations` would enable multi-language support with minimal structural change given the existing architecture and based on app reach.

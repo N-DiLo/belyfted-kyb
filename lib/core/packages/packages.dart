@@ -7,3 +7,6 @@ export 'package:flutter/material.dart';
 export 'package:flutter/foundation.dart';
 export 'package:flutter/services.dart';
 export 'package:dotted_border/dotted_border.dart';
+export 'package:image_picker/image_picker.dart';
+export 'package:file_picker/file_picker.dart';
+export 'package:flutter_riverpod/flutter_riverpod.dart';

@@ -1,7 +1,8 @@
 import 'package:belyfted/belyfted.dart';
 
 class CheckStatusView extends StatelessWidget {
-  const CheckStatusView({super.key});
+  const CheckStatusView({super.key, required this.submission});
+  final KYBSubmissionModel submission;
 
   @override
   Widget build(BuildContext context) {
@@ -37,17 +38,18 @@ class CheckStatusView extends StatelessWidget {
               ),
               53.fhs,
               KycCard(
-                userType: MockKycData.directors.map((item) {
-                  return item.status == KycStatus.pending
-                      ? KycItem(
-                          email: item.email,
-                          role: item.role,
-                          status: item.status,
-                          onResendLink: () {},
-                        )
-                      : item;
-                }).toList(),
+                userType: submission.directors
+                    .map(
+                      (d) => KycItem(
+                        email: d.email,
+                        role: d.role,
+                        status: KycStatus.pending,
+                        onResendLink: () {},
+                      ),
+                    )
+                    .toList(),
               ),
+
               45.fhs,
               CustomButton(
                 onTap: () async {
