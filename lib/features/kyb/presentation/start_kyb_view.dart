@@ -15,7 +15,13 @@ class StartKYBView extends StatelessWidget {
             Center(
               child: Column(
                 children: [
-                  ImageWidget(url: AppImages.verify),
+                  VerificationImage(
+                    borderRadius: BorderRadius.circular(12.r),
+                    color: AppColors.belyftedPrimaryColor.shade500,
+                    shadowColor: AppColors.belyftedPrimaryColor.shade500,
+                    shape: BoxShape.rectangle,
+                    child: ImageWidget(url: AppImages.identification),
+                  ),
                   10.fhs,
                   TextWidget(
                     text: 'Verify Your Business',

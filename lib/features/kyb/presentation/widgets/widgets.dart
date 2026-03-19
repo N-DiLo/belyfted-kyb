@@ -6,5 +6,4 @@ export 'status_badge.dart';
 export 'kyc_tile.dart';
 export 'dialog_content.dart';
 export 'new_director_details.dart';
-export 'document_upload_field.dart';
 export 'director_card.dart';

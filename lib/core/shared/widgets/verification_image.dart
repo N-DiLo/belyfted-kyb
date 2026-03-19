@@ -6,11 +6,14 @@ class VerificationImage extends StatelessWidget {
     required this.child,
     required this.color,
     required this.shadowColor,
+    this.shape = BoxShape.circle,
+    this.borderRadius,
   });
   final Widget child;
   final Color color;
   final Color shadowColor;
-
+  final BoxShape shape;
+  final BorderRadiusGeometry? borderRadius;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,8 +22,9 @@ class VerificationImage extends StatelessWidget {
       padding: 12.pa,
       alignment: Alignment.center,
       decoration: BoxDecoration(
+        borderRadius: borderRadius,
         color: color,
-        shape: BoxShape.circle,
+        shape: shape,
         boxShadow: [
           BoxShadow(
             color: shadowColor.withValues(alpha: .2),

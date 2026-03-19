@@ -8,3 +8,4 @@ export 'dotted_border_button.dart';
 export 'step_indicator.dart';
 export 'verification_image.dart';
 export 'picker_option.dart';
+export 'document_upload_field.dart';

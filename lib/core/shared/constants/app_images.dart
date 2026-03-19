@@ -7,15 +7,13 @@ class AppImages {
   static const documentUpload = '$_path/document-upload.svg';
   static const edit = '$_path/edit.svg';
   static const profileUser = '$_path/profile-user.svg';
-  static const vFailed = '$_path/verification-failed.svg';
   static const vSuccess = '$_path/verification-success.svg';
-  static const vPending = '$_path/verification-pending.svg';
-  static const verify = '$_path/verify.svg';
   static const arrowDown = '$_path/arrow-down.svg';
   static const global = '$_path/global.svg';
   static const zap = '$_path/zap.svg';
   static const clock = '$_path/clock.svg';
   static const information = '$_path/information.svg';
+  static const identification = '$_path/identification.svg';
 }
 
 extension ImageExt on String {
