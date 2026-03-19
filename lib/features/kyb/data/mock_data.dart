@@ -68,16 +68,25 @@ class MockKYBData {
   ];
 
   static const List<String> roles = [
-    'Provide strategic leadership',
-    'Oversee company operations',
-    'Ensure legal compliance',
-    'Set company policies',
-    'Manage financial decisions',
-    'Supervise management team',
-    'Represent the company',
-    'Drive business growth',
-    'Manage risks',
-    'Monitor performance',
+    'Director',
+    'Shareholder',
+    'Chairman',
+    'Chief Executive Officer (CEO)',
+    'Chief Technology Officer (CTO)',
+    'Chief Operating Officer (COO)',
+    'Chief Financial Officer (CFO)',
+    'Chief Marketing Officer (CMO)',
+    'Chief Information Officer (CIO)',
+    'Advisor',
+    'Consultant',
+    'Sales Manager',
+    'Marketing Manager',
+    'Operations Manager',
+    'Project Manager',
+    'Product Manager',
+    'HR Manager',
+    'Accountant',
+    'Legal Officer',
   ];
 
   static List<DirectorItem> get seedDirectors => const [

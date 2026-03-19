@@ -36,7 +36,9 @@ class DirectorCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TextWidget(
-                    text: director.name,
+                    text: director.name.isNotEmpty
+                        ? director.name
+                        : director.displayName,
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
                     textColor: AppColors.belyftedNeutralColor.shade800,
