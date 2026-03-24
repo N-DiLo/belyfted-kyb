@@ -1,5 +1,4 @@
 import 'package:belyfted/belyfted.dart';
-import 'package:belyfted/features/kyb/presentation/check_status_view.dart';
 
 Route<T> onGenerateRoute<T>(RouteSettings settings) {
   final route = settings.name ?? RouteService.startVerification;
